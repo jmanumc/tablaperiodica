@@ -1,0 +1,7 @@
+<lx-tabs lx-active-tab="vm.activeTab">
+    <lx-tab lx-label="{{ data.nombre }}" ng-repeat="data in vm.tabs">
+        <div class="p+">
+            <ng-include src="'templates/partials/elementos.html'"></ng-include>
+        </div>
+    </lx-tab>
+</lx-tabs>

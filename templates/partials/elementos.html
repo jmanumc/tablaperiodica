@@ -1,0 +1,18 @@
+<div flex-container="row" flex-column="12" flex-gutter="24" flex-wrap>
+    <div class="mt mb" flex-item="3" ng-repeat="elemento in data.elementos | filter:vm.search">
+        <div class="p+ elemento {{ elemento.tipo.clase }}" ng-click="getElemento(elemento.id)">
+            <div class="atomo"><small>{{ elemento.atomo }}</small></div>
+        	<div class="serie" ng-if="elemento.serie.clase">
+        		<span ng-if="elemento.serie.clase == 'lantanido'">
+        			<lx-icon lx-id="star-outline" lx-size="xs" lx-color="orange" lx-type="circled"></lx-icon>
+        		</span>
+        		<span ng-if="elemento.serie.clase == 'actinido'">
+        			<lx-icon lx-id="star-outline" lx-size="xs" lx-color="yellow" lx-type="circled"></lx-icon>
+        		</span>
+        	</div>
+        	<h1 class="simbolo {{ elemento.estado.clase }}">{{ elemento.simbolo }}</h1>
+        	<p class="nombre">{{ elemento.nombre }}</p>
+        	<div class="subtipo {{ elemento.subtipo.clase }}"></div>
+        </div>
+    </div>
+</div>

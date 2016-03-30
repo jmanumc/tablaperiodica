@@ -1,0 +1,298 @@
+<div flex-container="row" flex-column="12">
+    <aside flex-item="2">
+        <div class="p+">
+            <span class="display-block mb">Clasificación</span>
+
+            <div class="divider divider--dark mb+"></div>
+
+            <lx-radio-group>
+                <lx-radio-button value="todos" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Todos</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="grupos" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Grupos</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="bloques" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Bloques</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="periodos" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Periodos</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="tipos" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Tipos</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="subtipos" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Subtipos</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="estados" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Estados</lx-radio-button-label>
+                </lx-radio-button>
+
+                <lx-radio-button value="series" ng-model="vm.clasificacion" lx-color="indigo">
+                    <lx-radio-button-label>Series</lx-radio-button-label>
+                </lx-radio-button>
+            </lx-radio-group>
+        </div>
+        <div class="p-">
+            <span class="display-block mb">Propiedades</span>
+            
+            <div class="divider divider--dark mb+"></div>
+
+            <div class="tc-white-1 p" flex-container="column">
+                <div flex-item class="mb-" ng-click="setPosition('tipos',0)" style="cursor: pointer;">
+                    <div class="p- gas-noble">Gases Nobles</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('tipos',1)" style="cursor: pointer;">
+                    <div class="p- metal">Metal</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('tipos',2)" style="cursor: pointer;">
+                    <div class="p- metal-transicion">Metal de Transición</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('tipos',3)" style="cursor: pointer;">
+                    <div class="p- no-metal">No Metal</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('tipos',4)" style="cursor: pointer;">
+                    <div class="p- metaloide">Metaloides</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('tipos',5)" style="cursor: pointer;">
+                    <div class="p- no-definido">No Definido</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main flex-item="8">
+        <div class="p+">
+
+            <div style="position: relative;">
+                <lx-progress lx-type="circular" lx-diameter="75" ng-if="vm.loading"></lx-progress>
+                <div ng-show="vm.error && !vm.loading">
+                    <div class="p+ bgc-white">No se encontraron resultados <span class="fs-title">:(</span></div>
+                </div>
+            </div>
+
+            <div ng-hide="vm.loading || vm.error" class="animated">
+            	<div ng-switch on="vm.clasificacion">
+
+            		<div ng-switch-when="todos" ng-controller="ElementosCtrl">
+            			<div class="toolbar bgc-white">
+                            <lx-search-filter>
+                                <input type="text" ng-model="vm.search" placeholder="Escribe el nombre del elemento">
+                            </lx-search-filter>
+            		    </div>
+            		    <div class="p+">
+            		    	<ng-include src="'templates/partials/elementos.html'"></ng-include>
+            		    </div>
+            		</div>
+
+            		<div ng-switch-when="tipos" ng-controller="TiposCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            		<div ng-switch-when="subtipos" ng-controller="SubtiposCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            		<div ng-switch-when="estados" ng-controller="EstadosCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            		<div ng-switch-when="series" ng-controller="SeriesCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            		<div ng-switch-when="grupos" ng-controller="GruposCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            		<div ng-switch-when="bloques" ng-controller="BloquesCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            		<div ng-switch-when="periodos" ng-controller="PeriodosCtrl">
+            			<ng-include src="'templates/partials/clasificaciones.html'"></ng-include>
+            		</div>
+
+            	</div>
+            </div>
+
+        </div>
+    </main>
+
+    <aside flex-item="2">
+        <div class="p+">
+            <span class="display-block mb">Otras Propiedades</span>
+            
+            <div class="divider divider--dark mb+"></div>
+
+            <div class="tc-black-1 p-" flex-container="column">
+                <div flex-item class="mb-" ng-click="setPosition('estados',0)" style="cursor: pointer;">
+                    <div class="p- bgc-white solido">Sólido</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('estados',1)" style="cursor: pointer;">
+                    <div class="p- bgc-white gas">Gas</div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('estados',2)" style="cursor: pointer;">
+                    <div class="p- bgc-white liquido">Líquido</div>
+                </div>
+                <div flex-item class="mb++" ng-click="setPosition('estados',3)" style="cursor: pointer;">
+                    <div class="p- bgc-white sintetico">Sintético</div>
+                </div>
+
+                <div flex-item class="mb-" ng-click="setPosition('subtipos',0)" style="position: relative; cursor: pointer;">
+                    <div class="p- bgc-white">Metálico <span class="subtipo metalico"></span></div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('subtipos',1)" style="position: relative; cursor: pointer;">
+                    <div class="p- bgc-white">No Metálico <span class="subtipo no-metalico"></span></div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('subtipos',2)" style="position: relative; cursor: pointer;">
+                    <div class="p- bgc-white">Pre. Metálico <span class="subtipo pre-metalico"></span></div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('subtipos',3)" style="position: relative; cursor: pointer;">
+                    <div class="p- bgc-white">Pre. No Metálico <span class="subtipo pre-no-metalico"></span></div>
+                </div>
+                <div flex-item class="mb-" ng-click="setPosition('subtipos',4)" style="position: relative; cursor: pointer;">
+                    <div class="p- bgc-white">Anfótero <span class="subtipo anfotero"></span></div>
+                </div>
+                <div flex-item class="mb++" ng-click="setPosition('subtipos',5)" style="position: relative; cursor: pointer;">
+                    <div class="p- bgc-white">No Identificado <span class="subtipo no-identificado"></span></div>
+                </div>
+
+                
+                <div flex-item class="p- bgc-white mb-" style="position: relative; cursor: pointer;" ng-click="setPosition('series',0)">
+                    <span>Lantánidos</span>
+                    <span style="position: absolute; right: 5px;">
+                        <lx-icon lx-id="star-outline" lx-size="xs" lx-color="orange" lx-type="circled"></lx-icon>
+                    </span>
+                </div>
+                <div flex-item class="p- bgc-white" style="position: relative; cursor: pointer;s" ng-click="setPosition('series',1)">
+                    <span>Actínidos</span>
+                    <span style="position: absolute; right: 5px;">
+                        <lx-icon lx-id="star-outline" lx-size="xs" lx-color="yellow" lx-type="circled"></lx-icon>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+
+<!-- Dialogo -->
+<lx-dialog id="{{ vm.dialogId }}">
+    <lx-dialog-header>
+        <div class="toolbar pl++ {{ elemento.tipo.clase }}">
+            <span class="toolbar__label tc-white fs-title">
+                {{ elemento.nombre }}
+            </span>
+        </div>
+ 
+        <lx-tabs lx-panes-id="lorem-ipsum"
+                 lx-links="[{label: 'Detalles'}, {label: 'Función'}, {label: 'Impacto Ambiental'}]"
+                 lx-layout="inline"
+                 lx-color="primary"
+                 lx-indicator="primary"></lx-tabs>
+    </lx-dialog-header>
+ 
+    <lx-dialog-content>
+        <lx-tabs-panes id="lorem-ipsum">
+            <lx-tab-pane>
+                <div class="data-table-container">
+                    <div class="p+">
+                        <div flex-container="row" flex-gutter="24">
+                            <div flex-item>
+                               <lx-text-field lx-label="N° Atomico" ng-disabled="true">
+                                   <input type="text" ng-model="elemento.atomo">
+                               </lx-text-field>
+                            </div>
+                            <div flex-item>
+                               <lx-text-field lx-label="N° de Oxidación" ng-disabled="true">
+                                   <input type="text" ng-model="elemento.oxidacion">
+                               </lx-text-field>
+                            </div>
+                            <div flex-item>
+                                <lx-text-field lx-label="Simbolo" ng-disabled="true">
+                                    <input type="text" ng-model="elemento.simbolo">
+                                </lx-text-field>
+                            </div>
+                       </div>
+                       <div flex-container="row" flex-gutter="24">
+                            <div flex-item>
+                               <lx-text-field lx-label="Nombre" ng-disabled="true">
+                                   <input type="text" ng-model="elemento.nombre">
+                               </lx-text-field>
+                            </div>
+                            <div flex-item>
+                               <lx-text-field lx-label="Masa" ng-disabled="true">
+                                   <input type="text" ng-model="elemento.masa">
+                               </lx-text-field>
+                            </div>
+                            <div flex-item>
+                               <lx-text-field lx-label="N° de Electrones" ng-disabled="true">
+                                   <input type="text" ng-model="elemento.electrones">
+                               </lx-text-field>
+                            </div>
+                        </div>
+                        <div flex-container="row" flex-gutter="24">
+                            <div flex-item>
+                                <lx-text-field lx-label="Tipo" ng-disabled="true">
+                                    <input type="text" ng-model="elemento.tipo.nombre">
+                                </lx-text-field>
+                            </div>
+                            <div flex-item>
+                                <lx-text-field lx-label="Subtipo" ng-disabled="true">
+                                    <input type="text" ng-model="elemento.subtipo.nombre">
+                                </lx-text-field>
+                            </div>
+                            <div flex-item>
+                                <lx-text-field lx-label="Estado" ng-disabled="true">
+                                    <input type="text" ng-model="elemento.estado.nombre">
+                                </lx-text-field>
+                            </div>
+                            <div flex-item ng-if="elemento.serie">
+                                <lx-text-field lx-label="Serie" ng-disabled="true">
+                                    <input type="text" ng-model="elemento.serie.nombre">
+                                </lx-text-field>
+                            </div>
+                         </div>
+                         <div flex-container="row" flex-gutter="24">
+                             <div flex-item ng-if="elemento.grupo">
+                                 <lx-text-field lx-label="Grupo" ng-disabled="true">
+                                     <input type="text" ng-model="elemento.grupo.nombre">
+                                 </lx-text-field>
+                             </div>
+                             <div flex-item>
+                                 <lx-text-field lx-label="Bloque" ng-disabled="true">
+                                     <input type="text" ng-model="elemento.bloque.nombre">
+                                 </lx-text-field>
+                             </div>
+                             <div flex-item>
+                                 <lx-text-field lx-label="Periodo" ng-disabled="true">
+                                     <input type="text" ng-model="elemento.periodo.nombre">
+                                 </lx-text-field>
+                             </div>
+                          </div>
+                    </div>
+                </div>
+            </lx-tab-pane>
+ 
+            <lx-tab-pane>
+                <div class="p++">
+                    <p>Lorem Ipsum Content 2</p>
+                </div>
+            </lx-tab-pane>
+ 
+            <lx-tab-pane>
+                <p class="p++">Lorem Ipsum Content 3</p>
+            </lx-tab-pane>
+        </lx-tab-panes>
+    </lx-dialog-content>
+ 
+    <lx-dialog-footer>
+        <lx-button lx-type="flat" lx-dialog-close>Salir</lx-button>
+    </lx-dialog-footer>
+</lx-dialog>
