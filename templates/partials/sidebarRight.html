@@ -1,0 +1,53 @@
+<div class="p+">
+    <span class="display-block mb">Otras Propiedades</span>
+    
+    <div class="divider divider--dark mb+"></div>
+
+    <div class="tc-black-1 p-" flex-container="column">
+        <div flex-item class="mb-" ng-click="setPosition('estados',0)" style="cursor: pointer;">
+            <div class="p- bgc-white solido">Sólido</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('estados',1)" style="cursor: pointer;">
+            <div class="p- bgc-white gas">Gas</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('estados',2)" style="cursor: pointer;">
+            <div class="p- bgc-white liquido">Líquido</div>
+        </div>
+        <div flex-item class="mb++" ng-click="setPosition('estados',3)" style="cursor: pointer;">
+            <div class="p- bgc-white sintetico">Sintético</div>
+        </div>
+
+        <div flex-item class="mb-" ng-click="setPosition('subtipos',0)" style="position: relative; cursor: pointer;">
+            <div class="p- bgc-white">Metálico <span class="subtipo metalico"></span></div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('subtipos',1)" style="position: relative; cursor: pointer;">
+            <div class="p- bgc-white">No Metálico <span class="subtipo no-metalico"></span></div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('subtipos',2)" style="position: relative; cursor: pointer;">
+            <div class="p- bgc-white">Pre. Metálico <span class="subtipo pre-metalico"></span></div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('subtipos',3)" style="position: relative; cursor: pointer;">
+            <div class="p- bgc-white">Pre. No Metálico <span class="subtipo pre-no-metalico"></span></div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('subtipos',4)" style="position: relative; cursor: pointer;">
+            <div class="p- bgc-white">Anfótero <span class="subtipo anfotero"></span></div>
+        </div>
+        <div flex-item class="mb++" ng-click="setPosition('subtipos',5)" style="position: relative; cursor: pointer;">
+            <div class="p- bgc-white">No Identificado <span class="subtipo no-identificado"></span></div>
+        </div>
+
+        
+        <div flex-item class="p- bgc-white mb-" style="position: relative; cursor: pointer;" ng-click="setPosition('series',0)">
+            <span>Lantánidos</span>
+            <span style="position: absolute; right: 5px;">
+                <lx-icon lx-id="star-outline" lx-size="xs" lx-color="orange" lx-type="circled"></lx-icon>
+            </span>
+        </div>
+        <div flex-item class="p- bgc-white" style="position: relative; cursor: pointer;s" ng-click="setPosition('series',1)">
+            <span>Actínidos</span>
+            <span style="position: absolute; right: 5px;">
+                <lx-icon lx-id="star-outline" lx-size="xs" lx-color="yellow" lx-type="circled"></lx-icon>
+            </span>
+        </div>
+    </div>
+</div>

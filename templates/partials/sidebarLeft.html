@@ -1,0 +1,65 @@
+<div class="p+">
+    <span class="display-block mb">Clasificación</span>
+
+    <div class="divider divider--dark mb+"></div>
+
+    <lx-radio-group>
+        <lx-radio-button value="todos" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Todos</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="grupos" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Grupos</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="bloques" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Bloques</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="periodos" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Periodos</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="tipos" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Tipos</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="subtipos" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Subtipos</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="estados" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Estados</lx-radio-button-label>
+        </lx-radio-button>
+
+        <lx-radio-button value="series" ng-model="vm.clasificacion" lx-color="indigo">
+            <lx-radio-button-label>Series</lx-radio-button-label>
+        </lx-radio-button>
+    </lx-radio-group>
+</div>
+<div class="p-">
+    <span class="display-block mb">Propiedades</span>
+    
+    <div class="divider divider--dark mb+"></div>
+
+    <div class="tc-white-1 p" flex-container="column">
+        <div flex-item class="mb-" ng-click="setPosition('tipos',0)" style="cursor: pointer;">
+            <div class="p- gas-noble">Gases Nobles</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('tipos',1)" style="cursor: pointer;">
+            <div class="p- metal">Metal</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('tipos',2)" style="cursor: pointer;">
+            <div class="p- metal-transicion">Metal de Transición</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('tipos',3)" style="cursor: pointer;">
+            <div class="p- no-metal">No Metal</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('tipos',4)" style="cursor: pointer;">
+            <div class="p- metaloide">Metaloides</div>
+        </div>
+        <div flex-item class="mb-" ng-click="setPosition('tipos',5)" style="cursor: pointer;">
+            <div class="p- no-definido">No Definido</div>
+        </div>
+    </div>
+</div>
