@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div flex-container="row" flex-gutter="24">
-                            <div flex-item>
+                            <div flex-item ng-if="elemento.tipo">
                                 <lx-text-field lx-label="Tipo" ng-disabled="true">
                                     <input type="text" ng-model="elemento.tipo.nombre">
                                 </lx-text-field>

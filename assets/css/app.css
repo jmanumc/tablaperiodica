@@ -11,6 +11,7 @@ a {
 	position: relative;
 	color: #ffffff;
 	transition: all 0.2s;
+	background-color: #9191d4;
 }
 .elemento:hover {
 	cursor: pointer;
