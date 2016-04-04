@@ -1,9 +1,15 @@
 <lx-dialog id="{{ vm.dialogId }}">
     <lx-dialog-header>
-        <div class="toolbar pl++ {{ elemento.tipo.clase }}">
+        <div class="toolbar pl++ bgc-indigo-A100 {{ elemento.tipo.clase }}">
             <span class="toolbar__label tc-white fs-title">
                 {{ elemento.nombre }}
             </span>
+
+            <div class="toolbar__right">
+                <lx-button lx-size="l" lx-color="white" lx-type="icon" lx-dialog-close>
+                    <i class="mdi mdi-close"></i>
+                </lx-button>
+            </div>
         </div>
  
         <lx-tabs lx-panes-id="lorem-ipsum"
@@ -16,81 +22,76 @@
     <lx-dialog-content>
         <lx-tabs-panes id="lorem-ipsum">
             <lx-tab-pane>
-                <div class="data-table-container">
-                    <div class="p+">
-                        <div flex-container="row" flex-gutter="24">
-                            <div flex-item>
-                               <lx-text-field lx-label="N° Atomico" ng-disabled="true">
-                                   <input type="text" ng-model="elemento.atomo">
-                               </lx-text-field>
-                            </div>
-                            <div flex-item>
-                               <lx-text-field lx-label="N° de Oxidación" ng-disabled="true">
-                                   <input type="text" ng-model="elemento.oxidacion">
-                               </lx-text-field>
-                            </div>
-                            <div flex-item>
-                                <lx-text-field lx-label="Simbolo" ng-disabled="true">
-                                    <input type="text" ng-model="elemento.simbolo">
-                                </lx-text-field>
-                            </div>
-                       </div>
-                       <div flex-container="row" flex-gutter="24">
-                            <div flex-item>
-                               <lx-text-field lx-label="Nombre" ng-disabled="true">
-                                   <input type="text" ng-model="elemento.nombre">
-                               </lx-text-field>
-                            </div>
-                            <div flex-item>
-                               <lx-text-field lx-label="Masa" ng-disabled="true">
-                                   <input type="text" ng-model="elemento.masa">
-                               </lx-text-field>
-                            </div>
-                            <div flex-item>
-                               <lx-text-field lx-label="N° de Electrones" ng-disabled="true">
-                                   <input type="text" ng-model="elemento.electrones">
-                               </lx-text-field>
-                            </div>
+                <div class="p+ tc-black-2">
+
+                    <div flex-container="row" flex-gutter="24">
+                        <div flex-item>
+                            <div><small>N° Atomico:</small></div>
+                            <div>{{ elemento.atomo }}</div>
                         </div>
-                        <div flex-container="row" flex-gutter="24">
-                            <div flex-item ng-if="elemento.tipo">
-                                <lx-text-field lx-label="Tipo" ng-disabled="true">
-                                    <input type="text" ng-model="elemento.tipo.nombre">
-                                </lx-text-field>
-                            </div>
-                            <div flex-item>
-                                <lx-text-field lx-label="Subtipo" ng-disabled="true">
-                                    <input type="text" ng-model="elemento.subtipo.nombre">
-                                </lx-text-field>
-                            </div>
-                            <div flex-item>
-                                <lx-text-field lx-label="Estado" ng-disabled="true">
-                                    <input type="text" ng-model="elemento.estado.nombre">
-                                </lx-text-field>
-                            </div>
-                            <div flex-item ng-if="elemento.serie">
-                                <lx-text-field lx-label="Serie" ng-disabled="true">
-                                    <input type="text" ng-model="elemento.serie.nombre">
-                                </lx-text-field>
-                            </div>
-                         </div>
-                         <div flex-container="row" flex-gutter="24">
-                             <div flex-item ng-if="elemento.grupo">
-                                 <lx-text-field lx-label="Grupo" ng-disabled="true">
-                                     <input type="text" ng-model="elemento.grupo.nombre">
-                                 </lx-text-field>
-                             </div>
-                             <div flex-item>
-                                 <lx-text-field lx-label="Bloque" ng-disabled="true">
-                                     <input type="text" ng-model="elemento.bloque.nombre">
-                                 </lx-text-field>
-                             </div>
-                             <div flex-item>
-                                 <lx-text-field lx-label="Periodo" ng-disabled="true">
-                                     <input type="text" ng-model="elemento.periodo.nombre">
-                                 </lx-text-field>
-                             </div>
-                          </div>
+                        <div flex-item>
+                            <div><small>N° de Oxidación:</small></div>
+                            <div>{{ elemento.oxidacion }}</div>
+                        </div>
+                        <div flex-item>
+                            <div><small>Simbolo:</small></div>
+                            <div>{{ elemento.simbolo }}</div>
+                        </div>
+                   </div>
+
+                   <div class="divider divider--dark mt mb"></div>
+
+                   <div flex-container="row" flex-gutter="24">
+                        <div flex-item>
+                            <div><small>Masa:</small></div>
+                            <div>{{ elemento.masa }}</div>
+                        </div>
+                        <div flex-item>
+                            <div><small>N° de electrones:</small></div>
+                            <div>{{ elemento.electrones }}</div>
+                        </div>
+                        <div flex-item ng-if="elemento.tipo">
+                            <div><small>Tipo:</small></div>
+                            <div>{{ elemento.tipo.nombre }}</div>
+                        </div>
+                    </div>
+
+                    <div class="divider divider--dark mt mb"></div>
+
+                    <div flex-container="row" flex-gutter="24">
+                        <div flex-item>
+                            <div><small>Subtipo:</small></div>
+                            <div>{{ elemento.subtipo.nombre }}</div>
+                        </div>
+                        <div flex-item>
+                            <div><small>Estado:</small></div>
+                            <div>{{ elemento.estado.nombre }}</div>
+                        </div>
+                        <div flex-item ng-if="elemento.serie">
+                            <div><small>Serie:</small></div>
+                            <div>{{ elemento.serie.nombre }}</div>
+                        </div>
+                        <div flex-item ng-if="elemento.grupo">
+                            <div><small>Grupo:</small></div>
+                            <div>{{ elemento.grupo.nombre }} ({{ elemento.grupo.numero }})</div>
+                        </div>
+                     </div>
+                        
+                    <div class="divider divider--dark mt mb"></div>
+
+                    <div flex-container="row" flex-gutter="24">
+                        <div flex-item>
+                            <div><small>Bloque:</small></div>
+                            <div>{{ elemento.bloque.letra }} ({{ elemento.bloque.nombre }})</div>
+                        </div>
+                        <div flex-item>
+                            <div><small>Periodo:</small></div>
+                            <div>{{ elemento.periodo.nombre }}</div>
+                        </div>
+                        <div flex-item>
+                            <div><small>Nivel de energia:</small></div>
+                            <div>{{ elemento.periodo.energia }}</div>
+                        </div>
                     </div>
                 </div>
             </lx-tab-pane>
@@ -106,8 +107,4 @@
             </lx-tab-pane>
         </lx-tab-panes>
     </lx-dialog-content>
- 
-    <lx-dialog-footer>
-        <lx-button lx-type="flat" lx-dialog-close>Salir</lx-button>
-    </lx-dialog-footer>
 </lx-dialog>

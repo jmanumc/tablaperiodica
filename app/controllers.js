@@ -39,6 +39,7 @@
                     TP.service('elementos').get({id:id},function (response) {
                         $scope.elemento = response;
                         $scope.elementos[id] = response;
+                        LxNotificationService.success('Elementos cargado');
                         $scope.showElemento($scope.elemento);
                     },function (response) {
                        LxNotificationService.error('El elemento no se cargo');
