@@ -98,12 +98,14 @@
  
             <lx-tab-pane>
                 <div class="p++">
-                    <p>Lorem Ipsum Content 2</p>
+                    <p ng-if="elemento.detalle">{{ elemento.detalle.aplicacion }}</p>
                 </div>
             </lx-tab-pane>
  
             <lx-tab-pane>
-                <p class="p++">Lorem Ipsum Content 3</p>
+                <div class="p+">
+                    <p ng-if="elemento.detalle">{{ elemento.detalle.impacto }}</p>
+                </div>
             </lx-tab-pane>
         </lx-tab-panes>
     </lx-dialog-content>
