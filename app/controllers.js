@@ -9,6 +9,8 @@
             $scope.vm.clasificacion = 'todos';
             $scope.vm.dialogId = 'detalles-elemento';
 
+            var ruteImage = 'images/elementos/';
+
             // Almacena temporalmente los datos.
             $scope.models = {};
             $scope.elementos = [];
@@ -38,7 +40,17 @@
                     LxNotificationService.info('Cargando elemento...');
                     TP.service('elementos').get({id:id},function (response) {
                         $scope.elemento = response;
-                        $scope.elementos[id] = response;
+                        
+                        // Arma la ruta de la imagen
+                        if(response.detalle){
+                            $scope.elemento.detalle.imagen = ruteImage + response.detalle.imagen;
+                        } else {
+                            $scope.elemento.detalle = {};
+                            $scope.elemento.detalle.imagen = ruteImage + 'default.JPG';
+                        }
+
+                        $scope.elementos[id] = $scope.elemento;
+
                         LxNotificationService.success('Elemento cargado');
                         $scope.showElemento($scope.elemento);
                     },function (response) {
