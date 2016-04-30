@@ -23,81 +23,84 @@
         <lx-tabs-panes id="lorem-ipsum">
             <lx-tab-pane>
                 <div class="p+ tc-black-2">
+                    
+                    <div flex-container="row" flex-column="12" flex-gutter="24" flex-wrap>
+                        <div flex-item="3">
+                            <img ng-src="{{ elemento.detalle.imagen }}" alt="{{ elemento.nombre }}" style="max-width: 100%, height: auto;">
+                        </div>
+                        <div flex-item="9">
+                             <div flex-container="row" flex-gutter="24">
+                                 <div flex-item>
+                                     <div><small>N° Atomico:</small></div>
+                                     <div>{{ elemento.atomo }}</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>N° de Oxidación:</small></div>
+                                     <div>{{ elemento.oxidacion }}</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Simbolo:</small></div>
+                                     <div>{{ elemento.simbolo }}</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Masa:</small></div>
+                                     <div>{{ elemento.masa }}</div>
+                                 </div>
+                            </div>
 
-                    <div flex-container="row" flex-gutter="24">
-                        <div flex-item>
-                            <div><small>N° Atomico:</small></div>
-                            <div>{{ elemento.atomo }}</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>N° de Oxidación:</small></div>
-                            <div>{{ elemento.oxidacion }}</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>Simbolo:</small></div>
-                            <div>{{ elemento.simbolo }}</div>
-                        </div>
-                   </div>
+                            <div class="divider divider--dark mt mb"></div>
 
-                   <div class="divider divider--dark mt mb"></div>
+                            <div flex-container="row" flex-gutter="24">
+                                 <div flex-item>
+                                     <div><small>N° de electrones:</small></div>
+                                     <div>{{ elemento.electrones }}</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Tipo:</small></div>
+                                     <div>{{ elemento.tipo.nombre }}</div>
+                                 </div>
 
-                   <div flex-container="row" flex-gutter="24">
-                        <div flex-item>
-                            <div><small>Masa:</small></div>
-                            <div>{{ elemento.masa }}</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>N° de electrones:</small></div>
-                            <div>{{ elemento.electrones }}</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>Tipo:</small></div>
-                            <div>{{ elemento.tipo.nombre }}</div>
-                        </div>
-                    </div>
+                                 <div flex-item>
+                                     <div><small>Subtipo:</small></div>
+                                     <div>{{ elemento.subtipo.nombre }}</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Estado:</small></div>
+                                     <div>{{ elemento.estado.nombre }}</div>
+                                 </div>
+                            </div>
 
-                    <div class="divider divider--dark mt mb"></div>
+                            <div class="divider divider--dark mt mb"></div>
 
-                    <div flex-container="row" flex-gutter="24">
-                        <div flex-item>
-                            <div><small>Subtipo:</small></div>
-                            <div>{{ elemento.subtipo.nombre }}</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>Estado:</small></div>
-                            <div>{{ elemento.estado.nombre }}</div>
-                        </div>
-                        <div flex-item ng-if="elemento.serie">
-                            <div><small>Serie:</small></div>
-                            <div>{{ elemento.serie.nombre }}</div>
-                        </div>
-                        <div flex-item ng-if="elemento.grupo">
-                            <div><small>Grupo:</small></div>
-                            <div>{{ elemento.grupo.nombre }} ({{ elemento.grupo.numero }})</div>
-                        </div>
-                     </div>
-                        
-                    <div class="divider divider--dark mt mb"></div>
-
-                    <div flex-container="row" flex-gutter="24">
-                        <div flex-item>
-                            <div><small>Bloque:</small></div>
-                            <div>{{ elemento.bloque.letra }} ({{ elemento.bloque.nombre }})</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>Periodo:</small></div>
-                            <div>{{ elemento.periodo.nombre }}</div>
-                        </div>
-                        <div flex-item>
-                            <div><small>Nivel de energia:</small></div>
-                            <div>{{ elemento.periodo.energia }}</div>
+                            <div flex-container="row" flex-gutter="24">
+                                 <div flex-item ng-if="elemento.serie">
+                                     <div><small>Serie:</small></div>
+                                     <div>{{ elemento.serie.nombre }}</div>
+                                 </div>
+                                 <div flex-item ng-if="elemento.grupo">
+                                     <div><small>Grupo:</small></div>
+                                     <div>{{ elemento.grupo.nombre }} ({{ elemento.grupo.numero }})</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Bloque:</small></div>
+                                     <div>{{ elemento.bloque.letra }} ({{ elemento.bloque.nombre }})</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Periodo:</small></div>
+                                     <div>{{ elemento.periodo.nombre }}</div>
+                                 </div>
+                                 <div flex-item>
+                                     <div><small>Nivel de energia:</small></div>
+                                     <div>{{ elemento.periodo.energia }}</div>
+                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </lx-tab-pane>
  
             <lx-tab-pane>
-                <div class="p++">
+                <div class="p+">
                     <p ng-if="elemento.detalle">{{ elemento.detalle.aplicacion }}</p>
                 </div>
             </lx-tab-pane>
