@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module('App', ['ngRoute','lumx','ngResource'])
+	angular.module('App', ['ngRoute','lumx','ngResource', 'ngSanitize'])
 
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider

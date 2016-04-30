@@ -101,13 +101,13 @@
  
             <lx-tab-pane>
                 <div class="p+">
-                    <p ng-if="elemento.detalle">{{ elemento.detalle.aplicacion }}</p>
+                    <div ng-if="elemento.detalle.aplicacion" ng-bind-html="elemento.detalle.aplicacion"><</div>
                 </div>
             </lx-tab-pane>
  
             <lx-tab-pane>
                 <div class="p+">
-                    <p ng-if="elemento.detalle">{{ elemento.detalle.impacto }}</p>
+                    <div ng-if="elemento.detalle.impacto" ng-bind-html="elemento.detalle.impacto"></div>
                 </div>
             </lx-tab-pane>
         </lx-tab-panes>
