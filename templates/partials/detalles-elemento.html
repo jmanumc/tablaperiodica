@@ -2,6 +2,14 @@
     <lx-dialog-header>
         <div class="toolbar pl++ bgc-indigo-A100 {{ elemento.tipo.clase }}">
             <span class="toolbar__label tc-white fs-title">
+                <span class="serie" ng-if="elemento.serie.clase">
+                    <span ng-if="elemento.serie.clase == 'lantanido'">
+                        <lx-icon lx-id="star-outline" lx-size="m" lx-color="orange" lx-type="circled"></lx-icon>
+                    </span>
+                    <span ng-if="elemento.serie.clase == 'actinido'">
+                        <lx-icon lx-id="star-outline" lx-size="m" lx-color="yellow" lx-type="circled"></lx-icon>
+                    </span>
+                </span>
                 {{ elemento.nombre }}
             </span>
 
