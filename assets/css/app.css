@@ -7,6 +7,10 @@ a {
 	text-decoration: none;
 }
 
+.title {
+	font-family: 'Orbitron', sans-serif;
+}
+
 .elemento {
 	position: relative;
 	color: #ffffff;
